@@ -60,7 +60,7 @@ public class Main {
           personaje1.mostrarInfo();
 
           
-           Zombie zombie1 = new Zombie(tipo, vidaZombie);
+                       Zombie zombie1 = new Zombie(tipo, vidaZombie);
 
 
                  System.out.println("¡UN ZOMBI HA APARECIDO!");
@@ -73,12 +73,25 @@ public class Main {
 
                    for (int i = 0; i <= 4;i++) {
              System.out.println("Día: " + (i + 1));
+
+
+                    int experienciaTotalDia = 0;
+                do{
+                    System.out.println("Mision");
+                    int experienciaMision = scaner.nextInt();
+                     experienciaTotalDia += experienciaMision;
+                   System.out.println("Progreso del día: " + experienciaTotalDia + " / 110 exp.");
+                }while (experienciaTotalDia < 110);
+                System.out.println("Misión completada");
             
       
 
 
+
+
         
             } 
+
     }
 
 }
