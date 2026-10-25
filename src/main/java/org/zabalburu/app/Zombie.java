@@ -3,28 +3,28 @@ package org.zabalburu.app;
 public class Zombie {
 
     private String tipo;
-    private int vida;
+    private int vidaZombie;
 
 
 
     
-    public Zombie(String tipo, int vida) {
+    public Zombie(String tipo, int vidaZombie) {
         int opcion = (int) (Math.random() * 3);
 
         switch (opcion) {
             case 1 :
                 this.tipo = "Caminante";
-                this.vida = 20;
+                this.vidaZombie = 20;
                 break;
             
             case 2 :
                 this.tipo = "Corredor";
-                this.vida = 35;
+                this.vidaZombie = 35;
                 break;
 
             case 3 :
                 this.tipo = "Tanque";
-                this.vida = 50;
+                this.vidaZombie = 50;
                 break;
             }
     }
@@ -47,14 +47,14 @@ public class Zombie {
 
 
     public int getVida() {
-        return vida;
+        return vidaZombie;
     }
 
 
 
 
-    public void setVida(int vida) {
-        this.vida = vida;
+    public void setVida(int vidaZombie) {
+        this.vidaZombie = vidaZombie;
     }
 
 
@@ -62,7 +62,7 @@ public class Zombie {
 
     @Override
     public String toString() {
-        return "Zombie [tipo=" + tipo + ", vida=" + vida + "]";
+        return "Zombie [tipo=" + tipo + ", vida=" + vidaZombie + "]";
     }
     
     

@@ -4,17 +4,17 @@ public class Personaje {
 
         private String nombre;
         private String tipo;
-        private int vida;
+        private int vidaPersonaje;
         private int habilidad;
         private int botiquines;
 
 
 
         
-  public Personaje(String nombre, String tipo, int vida, int habilidad, int botiquines) {
+  public Personaje(String nombre, String tipo, int vidaPersonaje, int habilidad, int botiquines) {
             this.nombre = nombre;
             this.tipo = tipo;
-            this.vida = vida;
+            this.vidaPersonaje = vidaPersonaje;
             this.habilidad = habilidad;
             this.botiquines = botiquines;
         }
@@ -25,15 +25,27 @@ public class Personaje {
         public void mostrarInfo() {
             System.out.println("Nombre: " + this.nombre);
             System.out.println("Tipo: " + this.tipo);
-            System.out.println("Vida: " + this.vida);
+            System.out.println("Vida: " + this.vidaPersonaje);
             System.out.println("Habilidad: " + this.habilidad);
              System.out.println("Botiquines: " + this.botiquines);
+
+
+             if(this.vidaPersonaje <= 30) {
+                System.out.println("CRÍTICO");
+            } else if (this.vidaPersonaje> 30 && this.vidaPersonaje <= 70) {
+                System.out.println("HERIDO");
+            } else {
+                System.out.println("ESTABLE");
+            }
   }
 
 
-        public String getNombre() {
-            return nombre;
-        }
+
+
+
+
+
+        public String getNombre() { return nombre; }
 
 
 
@@ -60,14 +72,15 @@ public class Personaje {
 
 
         public int getVida() {
-            return vida;
+            
+       return vidaPersonaje;
         }
 
 
 
 
         public void setVida(int vida) {
-            this.vida = vida;
+            this.vidaPersonaje = vida;
         }
 
 
@@ -103,7 +116,7 @@ public class Personaje {
 
         @Override
         public String toString() {
-            return "Personaje [nombre=" + nombre + ", tipo=" + tipo + ", vida=" + vida + ", habilidad=" + habilidad
+            return "Personaje [nombre=" + nombre + ", tipo=" + tipo + ", vida=" + vidaPersonaje + ", habilidad=" + habilidad
                     + ", botiquines=" + botiquines + "]";
         }
 
