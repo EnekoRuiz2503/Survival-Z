@@ -11,7 +11,7 @@ public class Personaje {
 
 
         
-        public Personaje(String nombre, String tipo, int vida, int habilidad, int botiquines) {
+  public Personaje(String nombre, String tipo, int vida, int habilidad, int botiquines) {
             this.nombre = nombre;
             this.tipo = tipo;
             this.vida = vida;
@@ -20,6 +20,15 @@ public class Personaje {
         }
 
 
+
+   
+        public void mostrarInfo() {
+            System.out.println("Nombre: " + this.nombre);
+            System.out.println("Tipo: " + this.tipo);
+            System.out.println("Vida: " + this.vida);
+            System.out.println("Habilidad: " + this.habilidad);
+             System.out.println("Botiquines: " + this.botiquines);
+  }
 
 
         public String getNombre() {
