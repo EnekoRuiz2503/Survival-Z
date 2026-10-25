@@ -1,4 +1,4 @@
-package org.zabalburu;
+package org.zabalburu.app;
 
 public class Zombie {
 
@@ -12,19 +12,21 @@ public class Zombie {
         int opcion = (int) (Math.random() * 3);
 
         switch (opcion) {
-            case 0 -> {
+            case 1 :
                 this.tipo = "Caminante";
                 this.vida = 20;
-            }
-            case 1 -> {
+                break;
+            
+            case 2 :
                 this.tipo = "Corredor";
                 this.vida = 35;
-            }
-            case 2 -> {
+                break;
+
+            case 3 :
                 this.tipo = "Tanque";
                 this.vida = 50;
+                break;
             }
-        }
     }
 
 

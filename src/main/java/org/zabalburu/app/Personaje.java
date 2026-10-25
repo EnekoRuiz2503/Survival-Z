@@ -1,4 +1,4 @@
-package org.zabalburu;
+package org.zabalburu.app;
 
 public class Personaje {
 

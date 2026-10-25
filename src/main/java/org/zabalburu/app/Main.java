@@ -1,8 +1,7 @@
 package org.zabalburu.app;
 
-import org.zabalburu.Personaje;
-
 import java.util.Scanner;
+
 
 public class Main {
 
@@ -58,6 +57,14 @@ public class Main {
           Personaje personaje1 = new Personaje( nombre, tipo, vida, habilidad, botiquines);
           System.out.println("Información del personaje:");
           personaje1.mostrarInfo();
- 
-}    
+
+           Zombie zombie1 = new Zombie(tipo, vida);
+
+
+                 System.out.println("¡UN ZOMBI HA APARECIDO!");
+                 System.out.println("Tipo de Zombi: " + zombie1.getTipo());
+                 System.out.println("Vida del Zombi: " + zombie1.getVida());
+}           
+
+            
 } 
