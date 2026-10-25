@@ -64,7 +64,18 @@ public class Main {
                  System.out.println("¡UN ZOMBI HA APARECIDO!");
                  System.out.println("Tipo de Zombi: " + zombie1.getTipo());
                  System.out.println("Vida del Zombi: " + zombie1.getVida());
-}           
 
-            
-} 
+
+
+        
+
+                   for (int i = 0; i <= 4;i++) {
+             System.out.println("Día: " + (i + 1));
+      
+
+
+        
+            } 
+    }
+
+}
