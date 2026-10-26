@@ -15,39 +15,52 @@ public class Main {
         int botiquines = 0;
         int habilidad = 0;
         int vidaZombie = 0;
-     
+
+
+
+
+
+        System.out.println("================================");
+        System.out.println("¡BIENVENIDO A SURVIVAL Z!");
+        System.out.println("================================");
           System.out.println("Introduce tu nombre:");
           String  nombre = scaner.nextLine();
-          System.out.println("Selecciona una clase:");
-        System.out.println("Médico");
-        System.out.println("Policía");
-        System.out.println("Bombero");
-        System.out.print("Opción:");
+           System.out.println("================================");
+        
+     
+        System.out.println("Selecciona una clase:");
+        System.out.println("1) Médico");
+        System.out.println("2) Policía");
+        System.out.println("3) Bombero");
+        System.out.print("Opción: ");
+
         int opcion = scaner.nextInt();
+
+
 
 
           switch (opcion) {
               case 1:
-                  tipo = "Médico : 1";  
+                  tipo = " Médico";  
                   vidaPersonaje = 120;
                   habilidad = 6;
                   botiquines = 3;
                   break;
               case 2:
-                  tipo = "Policía : 2";
+                  tipo = " Policía ";
                   vidaPersonaje = 100;
                   habilidad = 8;
                   botiquines = 2;
                   break;
               case 3:
-                  tipo = "Bombero : 3";
+                  tipo = " Bombero ";
                   vidaPersonaje = 140;
                   habilidad = 7;
                   botiquines = 1;
                   break;
               default:
                   System.out.println("Opción inválida. Se asignará la clase por defecto: Médico.");
-                  tipo = "Médico";
+                  tipo = " Médico";
                   vidaPersonaje = 120;
                   habilidad = 6;
                   botiquines = 3;
@@ -62,8 +75,9 @@ public class Main {
           
                        Zombie zombie1 = new Zombie(tipo, vidaZombie);
 
-
+                 System.out.println("================================");
                  System.out.println("¡UN ZOMBI HA APARECIDO!");
+                  System.out.println("================================");
                  System.out.println("Tipo de Zombi: " + zombie1.getTipo());
                  System.out.println("Vida del Zombi: " + zombie1.getVida());
 
@@ -80,8 +94,8 @@ public class Main {
                     System.out.println("Mision");
                     int experienciaMision = scaner.nextInt();
                      experienciaTotalDia += experienciaMision;
-                   System.out.println("Progreso del día: " + experienciaTotalDia + " / 110 exp.");
-                }while (experienciaTotalDia < 110);
+                   System.out.println("Progreso del día: " + experienciaTotalDia + " / 100 exp.");
+                }while (experienciaTotalDia < 100);
                 System.out.println("Misión completada");
             
       
