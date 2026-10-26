@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-         Scanner scaner = new Scanner(System.in); 
+        Scanner scaner = new Scanner(System.in);
 
         String tipo = "";
         int vidaPersonaje = 0;
@@ -17,17 +17,14 @@ public class Main {
         int vidaZombie = 0;
 
 
-
-
-
         System.out.println("================================");
         System.out.println("¡BIENVENIDO A SURVIVAL Z!");
         System.out.println("================================");
-          System.out.println("Introduce tu nombre:");
-          String  nombre = scaner.nextLine();
-           System.out.println("================================");
-        
-     
+        System.out.println("Introduce tu nombre:");
+        String nombre = scaner.nextLine();
+        System.out.println("================================");
+
+
         System.out.println("Selecciona una clase:");
         System.out.println("1) Médico");
         System.out.println("2) Policía");
@@ -37,69 +34,63 @@ public class Main {
         int opcion = scaner.nextInt();
 
 
+        switch (opcion) {
+            case 1:
+                tipo = " Médico";
+                vidaPersonaje = 120;
+                habilidad = 6;
+                botiquines = 3;
+                break;
+            case 2:
+                tipo = " Policía ";
+                vidaPersonaje = 100;
+                habilidad = 8;
+                botiquines = 2;
+                break;
+            case 3:
+                tipo = " Bombero ";
+                vidaPersonaje = 140;
+                habilidad = 7;
+                botiquines = 1;
+                break;
+            default:
+                System.out.println("Opción inválida. Se asignará la clase por defecto: Médico.");
+                tipo = " Médico";
+                vidaPersonaje = 120;
+                habilidad = 6;
+                botiquines = 3;
+                break;
+
+        }
+        int vidaMaxima = vidaPersonaje;
 
 
-          switch (opcion) {
-              case 1:
-                  tipo = " Médico";  
-                  vidaPersonaje = 120;
-                  habilidad = 6;
-                  botiquines = 3;
-                  break;
-              case 2:
-                  tipo = " Policía ";
-                  vidaPersonaje = 100;
-                  habilidad = 8;
-                  botiquines = 2;
-                  break;
-              case 3:
-                  tipo = " Bombero ";
-                  vidaPersonaje = 140;
-                  habilidad = 7;
-                  botiquines = 1;
-                  break;
-              default:
-                  System.out.println("Opción inválida. Se asignará la clase por defecto: Médico.");
-                  tipo = " Médico";
-                  vidaPersonaje = 120;
-                  habilidad = 6;
-                  botiquines = 3;
-                  break;
-               
-          }
-                    int vidaMaxima = vidaPersonaje;
+        Personaje personaje1 = new Personaje(nombre, tipo, vidaPersonaje, habilidad, botiquines);
+        System.out.println("Información del personaje:");
+        personaje1.mostrarInfo();
 
 
+        Zombie zombie1 = new Zombie(tipo, vidaZombie);
 
-          Personaje personaje1 = new Personaje( nombre, tipo, vidaPersonaje, habilidad, botiquines);
-          System.out.println("Información del personaje:");
-          personaje1.mostrarInfo();
-
-          
-                       Zombie zombie1 = new Zombie(tipo, vidaZombie);
-
-                 System.out.println("================================");
-                 System.out.println("¡UN ZOMBI HA APARECIDO!");
-                  System.out.println("================================");
-                 System.out.println("Tipo de Zombi: " + zombie1.getTipo());
-                 System.out.println("Vida del Zombi: " + zombie1.getVida());
+        System.out.println("================================");
+        System.out.println("¡UN ZOMBI HA APARECIDO!");
+        System.out.println("================================");
+        System.out.println("Tipo de Zombi: " + zombie1.getTipo());
+        System.out.println("Vida del Zombi: " + zombie1.getVida());
 
 
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("================================");
+            System.out.println("DÍA " + i);
+            System.out.println("================================");
 
-        
-
-                   for (int i = 1;i <= 5;i++) {
+            int experienciaTotalDia = 0;
+            do {
                 System.out.println("================================");
-                 System.out.println("DÍA " +i);
-                 System.out.println("================================");
+                System.out.println("¡NUEVA MISIÓN!");
+                System.out.println("================================");
 
-                    int experienciaTotalDia = 0;
-                do{
-                     System.out.println("================================");
-                    System.out.println("¡NUEVA MISIÓN!");
-                    System.out.println("================================");
-                            
-                    while (experienciaTotalDia <=100) {
+                while (experienciaTotalDia <= 100) {
                     System.out.println("================================");
                     System.out.println("¡NUEVA MISIÓN! Elige qué hacer:");
                     System.out.println("================================");
@@ -110,42 +101,40 @@ public class Main {
                     int numMision = scaner.nextInt();
 
 
-
-                        
-                         String mision = switch (numMision) {
-                        case 1-> "combatir zombis"; 
+                    String mision = switch (numMision) {
+                        case 1 -> "combatir zombis";
                         case 2 -> "recoger suministros";
-                        case 3 -> "explorar viviendas"; 
+                        case 3 -> "explorar viviendas";
                         default -> "";
-                    };  
+                    };
 
 
                     int experienciaMision = 0;
 
                     if (mision.isEmpty()) {
-                         System.out.println("Opción inválida, elige 1, 2 o 3.(+0 exp)");
-                    }else {
-           
-                        
-                     experienciaMision = 10 + (int) (Math.random() * 21);  // entre 10 y 30
-                 
-                   System.out.println("Misión"+ mision+" (+" + experienciaMision + " exp)");
-                   } 
-                   experienciaTotalDia += experienciaMision;
-                   System.out.println("Progreso del día: " + experienciaTotalDia + " / 100 exp"); 
-                   
+                        System.out.println("Opción inválida, elige 1, 2 o 3.(+0 exp)");
+                    } else {
+
+
+                        experienciaMision = 10 + (int) (Math.random() * 21);  // entre 10 y 30
+
+                        System.out.println("Misión" + mision + " (+" + experienciaMision + " exp)");
+                    }
+                    experienciaTotalDia += experienciaMision;
+                    System.out.println("Progreso del día: " + experienciaTotalDia + " / 100 exp");
+
                     if (numMision == 1) {
-                    
+
                         System.out.println("===============================");
                         System.out.println("¡COMBATE CONTRA ZOMBIS!");
                         System.out.println("===============================");
-                       
+
                         vidaZombie = zombie1.getVida();
                         boolean huir = false;
 
                         while (vidaZombie > 0 && vidaPersonaje > 0 && !huir) {
-                            
-                            System.out.println(" Vida del personaje: " + vidaPersonaje +  " Zombie:" + vidaZombie + " Botiquines:  " + botiquines);
+
+                            System.out.println(" Vida del personaje: " + vidaPersonaje + " Zombie:" + vidaZombie + " Botiquines:  " + botiquines);
                             System.out.println("1) Atacar 2) Huir 3) Usar botiquín");
                             int accion = scaner.nextInt();
 
@@ -166,35 +155,43 @@ public class Main {
                                 System.out.println("Opción inválida o no tienes botiquines.");
                             }
 
-                              if (vidaZombie > 0 && !huir) {
-                                        int danoZombie = 5 + (int) (Math.random() * 11);   // entre 5 y 15
-                                        vidaPersonaje -= danoZombie;
-                                        System.out.println("El zombi te muerde: -" + danoZombie);
-                                      }
+                            if (vidaZombie > 0 && !huir) {
+                                int danoZombie = 5 + (int) (Math.random() * 11);   // entre 5 y 15
+                                vidaPersonaje -= danoZombie;
+                                System.out.println("El zombi te muerde: -" + danoZombie);
+                            }
+                                
+
+                            if (accion == 2) {
+                                boolean entro = abirPuerta(personaje1);
+                                if (entro) {
+
+                                    int intentos = 0;
+                                    boolean abierto = false;
+                                    do {
+                                        intentos++;
+                                        abierto = Math.random() < 0.5;
+                                        System.out.println("Intento " + intentos + (abierto ? ": ¡se abre!" : ": falla"));
+                                    } while (!abierto && intentos < 3);
+
+                                    if (abierto) {
+                                        System.out.println("¡Has abierto la puerta!");
+                                    } else {
+                                        System.out.println("No has podido abrir la puerta.");
+                                    }
+
+                                    return abierto;
+                                }       // cierra if (entro)
+                            }           // cierra if (accion == 2)
+                        }               // cierra while del combate
+                    }                   // cierra if (numMision == 1)
+                }                       // cierra while (experienciaTotalDia <= 100)
+
+            } while (experienciaTotalDia < 100);
 
 
-                        }
-                    }
-                
-                
-                
-                
-  
+            System.out.println("Dia" + i + "Completado!");
 
-
-                             }  } while (experienciaTotalDia < 100);
-           
-                 
-                   System.out.println("Dia" + i + "Completado!");
-           
-      
-
-
-
-
-        
-            } 
-
-    }
-
-}
+        }   // cierra for
+     }      // cierra main
+}           // cierra clas main
