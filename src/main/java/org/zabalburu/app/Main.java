@@ -67,6 +67,9 @@ public class Main {
                   break;
                
           }
+                    int vidaMaxima = vidaPersonaje;
+
+
 
           Personaje personaje1 = new Personaje( nombre, tipo, vidaPersonaje, habilidad, botiquines);
           System.out.println("Información del personaje:");
@@ -129,10 +132,57 @@ public class Main {
                    System.out.println("Misión"+ mision+" (+" + experienciaMision + " exp)");
                    } 
                    experienciaTotalDia += experienciaMision;
-                   System.out.println("Progreso del día: " + experienciaTotalDia + " / 100 exp");
-                  
-                                    } 
-                                } while (experienciaTotalDia < 100);
+                   System.out.println("Progreso del día: " + experienciaTotalDia + " / 100 exp"); 
+                   
+                    if (numMision == 1) {
+                    
+                        System.out.println("===============================");
+                        System.out.println("¡COMBATE CONTRA ZOMBIS!");
+                        System.out.println("===============================");
+                       
+                        vidaZombie = zombie1.getVida();
+                        boolean huir = false;
+
+                        while (vidaZombie > 0 && vidaPersonaje > 0 && !huir) {
+                            
+                            System.out.println(" Vida del personaje: " + vidaPersonaje +  " Zombie:" + vidaZombie + " Botiquines:  " + botiquines);
+                            System.out.println("1) Atacar 2) Huir 3) Usar botiquín");
+                            int accion = scaner.nextInt();
+
+                            if (accion == 1) {
+                                int dañoPersonaje = (int) (Math.random() * habilidad) + 1;
+                                vidaZombie -= dañoPersonaje;
+                                System.out.println("¡Has atacado al zombi y le has hecho " + dañoPersonaje + " de daño!");
+                            } else if (accion == 2) {
+                                huir = true;
+                                System.out.println("¡Has decidido huir del combate!");
+                                System.out.println("¡Has huido del combate! Pierdes 5 de vida.");
+                                vidaPersonaje -= 5;
+                            } else if (accion == 3 && botiquines > 0) {
+                                vidaPersonaje += 20;
+                                botiquines--;
+                                System.out.println("¡Has usado un botiquín y recuperado 20 de vida!");
+                            } else {
+                                System.out.println("Opción inválida o no tienes botiquines.");
+                            }
+
+                              if (vidaZombie > 0 && !huir) {
+                                        int danoZombie = 5 + (int) (Math.random() * 11);   // entre 5 y 15
+                                        vidaPersonaje -= danoZombie;
+                                        System.out.println("El zombi te muerde: -" + danoZombie);
+                                      }
+
+
+                        }
+                    }
+                
+                
+                
+                
+  
+
+
+                             }  } while (experienciaTotalDia < 100);
            
                  
                    System.out.println("Dia" + i + "Completado!");
