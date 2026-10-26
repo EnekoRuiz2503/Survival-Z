@@ -111,17 +111,27 @@ public class Main {
                         
                          String mision = switch (numMision) {
                         case 1-> "combatir zombis"; 
-                        case 2 -> "recoger suministros"; 
+                        case 2 -> "recoger suministros";
                         case 3 -> "explorar viviendas"; 
-                        default -> "No hay misión disponible"; 
-       
-                    };
-                     
-                    int experienciaMision = 10 + (int) (Math.random() * 21);  // entre 10 y 30
-                    experienciaTotalDia += experienciaMision;
+                        default -> "";
+                    };  
+
+
+                    int experienciaMision = 0;
+
+                    if (mision.isEmpty()) {
+                         System.out.println("Opción inválida, elige 1, 2 o 3.(+0 exp)");
+                    }else {
+           
+                        
+                     experienciaMision = 10 + (int) (Math.random() * 21);  // entre 10 y 30
+                 
                    System.out.println("Misión"+ mision+" (+" + experienciaMision + " exp)");
+                   } 
+                   experienciaTotalDia += experienciaMision;
                    System.out.println("Progreso del día: " + experienciaTotalDia + " / 100 exp");
-                                    }
+                  
+                                    } 
                                 } while (experienciaTotalDia < 100);
            
                  
