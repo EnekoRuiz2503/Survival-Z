@@ -85,19 +85,48 @@ public class Main {
 
         
 
-                   for (int i = 0; i <= 4;i++) {
-             System.out.println("Día: " + (i + 1));
-
+                   for (int i = 1;i <= 5;i++) {
+                System.out.println("================================");
+                 System.out.println("DÍA " +i);
+                 System.out.println("================================");
 
                     int experienciaTotalDia = 0;
                 do{
-                    System.out.println("Mision");
-                    int experienciaMision = scaner.nextInt();
-                     experienciaTotalDia += experienciaMision;
-                   System.out.println("Progreso del día: " + experienciaTotalDia + " / 100 exp.");
-                }while (experienciaTotalDia < 100);
-                System.out.println("Misión completada");
-            
+                     System.out.println("================================");
+                    System.out.println("¡NUEVA MISIÓN!");
+                    System.out.println("================================");
+                            
+                    while (experienciaTotalDia <=100) {
+                    System.out.println("================================");
+                    System.out.println("¡NUEVA MISIÓN! Elige qué hacer:");
+                    System.out.println("================================");
+                    System.out.println("1) Combatir zombis");
+                    System.out.println("2) Recoger suministros");
+                    System.out.println("3) Explorar viviendas");
+                    System.out.print("Opción: ");
+                    int numMision = scaner.nextInt();
+
+
+
+                        
+                         String mision = switch (numMision) {
+                        case 1-> "combatir zombis"; 
+                        case 2 -> "recoger suministros"; 
+                        case 3 -> "explorar viviendas"; 
+                        default -> "No hay misión disponible"; 
+       
+                    };
+                     
+                    int experienciaMision = 10 + (int) (Math.random() * 21);  // entre 10 y 30
+                    experienciaTotalDia += experienciaMision;
+                   System.out.println("Misión"+ mision+" (+" + experienciaMision + " exp)");
+                   System.out.println("Progreso del día: " + experienciaTotalDia + " / 100 exp");
+                                    }
+                                } while (experienciaTotalDia < 100);
+           
+                 
+                   System.out.println("Dia" + i + "Completado!");
+           
       
 
 
